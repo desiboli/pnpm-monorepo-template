@@ -24,6 +24,11 @@ const config = defineConfig({
 			"@/shared-ui": path.resolve(__dirname, "../../packages/shared-ui/src"),
 		},
 	},
+	// server: {
+	// 	proxy: {
+	// 		"/api": "http://localhost:8787",
+	// 	},
+	// },
 });
 
 export default config;
