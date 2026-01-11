@@ -7,6 +7,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noUncheckedSideEffectImports": false,
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
@@ -15,7 +16,8 @@
       }
     ],
     "paths": {
-      "@/my-next-app/*": ["./src/*"]
+      "@/my-next-app/*": ["./src/*"],
+      "@/shared-ui/*": ["../../packages/shared-ui/src/*"]
     }
   },
   "include": [

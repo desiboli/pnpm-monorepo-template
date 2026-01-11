@@ -14,7 +14,7 @@
     /* Linting */
     "baseUrl": ".",
     "paths": {
-      "@/my-tanstack-app/*": ["./src/*"]
+      "@/my-tanstack-app/*": ["./src/*"],
     }
   }
 }
