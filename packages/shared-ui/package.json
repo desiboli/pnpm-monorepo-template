@@ -5,6 +5,7 @@
 	"type": "module",
 	"main": "./src/index.ts",
 	"exports": {
+		".": "./src/index.ts",
 		"./*": "./src/components/ui/*.tsx",
 		"./icons": "./src/components/icons.tsx",
 		"./index.css": "./src/index.css"
