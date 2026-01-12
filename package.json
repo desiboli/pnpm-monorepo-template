@@ -4,7 +4,8 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "pnpm run -r --parallel --aggregate-output dev",
-		"build": "pnpm run -r build"
+		"build": "pnpm run -r build",
+		"lint": "pnpm run -r --parallel lint"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.11"
