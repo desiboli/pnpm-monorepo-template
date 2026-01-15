@@ -1,4 +1,4 @@
-Welcome to your new TanStack app! 
+# TanStack app
 
 # Getting Started
 
