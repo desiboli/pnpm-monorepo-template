@@ -1,3 +1,10 @@
 {
-	"extends": "//"
+	"extends": "//",
+	"linter": {
+		"rules": {
+			"style": {
+				"noProcessEnv": "error"
+			}
+		}
+	}
 }

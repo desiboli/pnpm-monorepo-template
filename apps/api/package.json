@@ -1,6 +1,7 @@
 {
 	"name": "@pnpm-monorepo-template/api",
 	"type": "module",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "tsx watch src/index.ts",
 		"build": "tsc",
@@ -11,6 +12,9 @@
 	"dependencies": {
 		"@hono/node-server": "^1.19.8",
 		"@hono/zod-openapi": "^1.2.0",
+		"@scalar/hono-api-reference": "^0.9.33",
+		"dotenv": "^17.2.3",
+		"dotenv-expand": "^12.0.3",
 		"hono": "^4.11.3",
 		"pino": "^10.1.1",
 		"pino-http": "^11.0.0",

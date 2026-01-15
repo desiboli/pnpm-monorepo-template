@@ -1,10 +1,11 @@
 import { serve } from "@hono/node-server";
 import app from "./app";
+import env from "./env";
 
 serve(
 	{
 		fetch: app.fetch,
-		port: 8787,
+		port: env.PORT,
 	},
 	(info) => {
 		// biome-ignore lint/suspicious/noConsole: we need to log the server is running
