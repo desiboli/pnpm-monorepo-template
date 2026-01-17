@@ -192,6 +192,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
 
+  packages/api-client: {}
+
   packages/db:
     dependencies:
       '@neondatabase/serverless':
@@ -204,12 +206,18 @@ importers:
         specifier: ^0.45.1
         version: 0.45.1(@neondatabase/serverless@1.0.2)(@types/pg@8.16.0)
     devDependencies:
+      '@types/node':
+        specifier: ^25.0.9
+        version: 25.0.9
       drizzle-kit:
         specifier: ^0.31.8
         version: 0.31.8
       tsx:
         specifier: ^4.21.0
         version: 4.21.0
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
 
   packages/shared-ui:
     dependencies:
@@ -2194,6 +2202,9 @@ packages:
 
   '@types/node@24.10.7':
     resolution: {integrity: sha512-+054pVMzVTmRQV8BhpGv3UyfZ2Llgl8rdpDTon+cUH9+na0ncBVXj3wTUKh14+Kiz18ziM3b4ikpP5/Pc0rQEQ==}
+
+  '@types/node@25.0.9':
+    resolution: {integrity: sha512-/rpCXHlCWeqClNBwUhDcusJxXYDjZTyE8v5oTO7WbL8eij2nKhUeU89/6xgjU7N4/Vh3He0BtyhJdQbDyhiXAw==}
 
   '@types/pg@8.16.0':
     resolution: {integrity: sha512-RmhMd/wD+CF8Dfo+cVIy3RR5cl8CyfXQ0tGgW6XBL8L4LM/UTEbNXYRbLwU6w+CgrKBNbrQWt4FUtTfaU5jSYQ==}
@@ -5296,6 +5307,10 @@ snapshots:
       undici-types: 6.21.0
 
   '@types/node@24.10.7':
+    dependencies:
+      undici-types: 7.16.0
+
+  '@types/node@25.0.9':
     dependencies:
       undici-types: 7.16.0
 
