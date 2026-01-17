@@ -10,6 +10,7 @@
 		"lint:fix": "biome check --write"
 	},
 	"dependencies": {
+		"@pnpm-monorepo-template/db": "workspace:*",
 		"@hono/node-server": "^1.19.8",
 		"@hono/zod-openapi": "^1.2.0",
 		"@scalar/hono-api-reference": "^0.9.33",
