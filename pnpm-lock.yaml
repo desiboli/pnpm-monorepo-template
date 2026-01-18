@@ -115,6 +115,9 @@ importers:
 
   apps/my-tanstack-app:
     dependencies:
+      '@pnpm-monorepo-template/api-client':
+        specifier: workspace:*
+        version: link:../../packages/api-client
       '@pnpm-monorepo-template/shared-ui':
         specifier: workspace:*
         version: link:../../packages/shared-ui

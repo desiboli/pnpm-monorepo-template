@@ -8,12 +8,21 @@ import {
 	Waves,
 	Zap,
 } from "lucide-react";
+import { api } from "../lib/api";
 
 export const Route = createFileRoute("/")({
+	loader: async () => {
+		const response = await api.tasks.$get();
+		if (!response.ok) {
+			throw new Error(`Failed to fetch tasks: ${response.statusText}`);
+		}
+		return await response.json();
+	},
 	component: App,
 });
 
 function App() {
+	const tasks = Route.useLoaderData();
 	const features = [
 		{
 			icon: <Zap className="w-12 h-12 text-cyan-400" />,
@@ -79,6 +88,9 @@ function App() {
 						Build modern applications with server functions, streaming, and type
 						safety.
 					</p>
+					<pre className="mt-2 p-4 bg-gray-100 rounded text-xs overflow-auto">
+						{JSON.stringify(tasks, null, 2)}
+					</pre>
 					<div className="flex flex-col items-center gap-4">
 						<a
 							href="https://tanstack.com/start"
@@ -89,6 +101,7 @@ function App() {
 							Documentation
 						</a>
 						<Button>Button from shared ui</Button>
+
 						<p className="text-gray-400 text-sm mt-2">
 							Begin your TanStack Start journey by editing{" "}
 							<code className="px-2 py-1 bg-slate-700 rounded text-cyan-400">
