@@ -1,7 +1,7 @@
 import { tasks } from "@pnpm-monorepo-template/db";
 import { db } from "../../lib/db";
 import type { AppRouteHandler } from "../../lib/types";
-import type { ListRoute } from "./tasks.routes";
+import type { CreateRoute, ListRoute } from "./tasks.routes";
 
 export const list: AppRouteHandler<ListRoute> = async (c) => {
 	c.var.logger.info("Listing tasks");
@@ -12,4 +12,11 @@ export const list: AppRouteHandler<ListRoute> = async (c) => {
 	// 	{ name: "Task 2", done: true },
 	// 	{ name: "Task 3", done: false },
 	// ]);
+};
+
+export const create: AppRouteHandler<CreateRoute> = async (c) => {
+	c.var.logger.info("Creating task");
+	const task = c.req.valid("json");
+	const [inserted] = await db.insert(tasks).values(task).returning();
+	return c.json(inserted);
 };

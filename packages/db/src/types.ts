@@ -1,7 +1,6 @@
-import type { InferInsertModel, InferSelectModel } from "drizzle-orm";
-import type { tasks } from "./schema/tasks";
+import type { z } from "zod";
+import type { insertTasksSchema, selectTasksSchema } from "./schema/tasks";
 
-// Data returned from the database (SELECT)
-export type Task = InferSelectModel<typeof tasks>;
-// Data sent to the database (INSERT)
-export type NewTask = InferInsertModel<typeof tasks>;
+// Derive types from Zod schemas (single source of truth)
+export type Task = z.infer<typeof selectTasksSchema>;
+export type NewTask = z.infer<typeof insertTasksSchema>;

@@ -1,7 +1,9 @@
 import { createRouter } from "../../lib/create-app";
-import * as tasksHandlers from "./tasks.handlers";
-import * as tasksRoutes from "./tasks.routes";
+import * as handlers from "./tasks.handlers";
+import * as routes from "./tasks.routes";
 
-const router = createRouter().openapi(tasksRoutes.list, tasksHandlers.list);
+const router = createRouter()
+	.openapi(routes.list, handlers.list)
+	.openapi(routes.create, handlers.create);
 
 export default router;

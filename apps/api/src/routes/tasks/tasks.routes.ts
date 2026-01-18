@@ -1,6 +1,10 @@
 import { createRoute, z } from "@hono/zod-openapi";
+import {
+	insertTasksSchema,
+	selectTasksSchema,
+} from "@pnpm-monorepo-template/db";
 import * as HttpStatusCodes from "stoker/http-status-codes";
-import { jsonContent } from "stoker/openapi/helpers";
+import { jsonContent, jsonContentRequired } from "stoker/openapi/helpers";
 
 const tags = ["tasks"];
 
@@ -24,4 +28,17 @@ export const list = createRoute({
 	},
 });
 
+export const create = createRoute({
+	method: "post",
+	path: "/tasks",
+	request: {
+		body: jsonContentRequired(insertTasksSchema, "The created task"),
+	},
+	tags,
+	responses: {
+		[HttpStatusCodes.OK]: jsonContent(selectTasksSchema, "The created task"),
+	},
+});
+
 export type ListRoute = typeof list;
+export type CreateRoute = typeof create;
