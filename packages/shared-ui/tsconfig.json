@@ -1,19 +1,14 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    // React JSX transform (no need to import React)
-    "jsx": "react-jsx",
-    
-    // Include DOM types for React components
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "noEmit": true,
-
-    /* Paths */
-    "baseUrl": ".",
-    "paths": {
-      "@/shared-ui/*": ["./src/*"],
-    }
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"noEmit": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/shared-ui/*": ["./src/*"]
+		}
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
 }
