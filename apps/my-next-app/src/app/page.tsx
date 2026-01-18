@@ -2,8 +2,21 @@ import { Button } from "@pnpm-monorepo-template/shared-ui/button";
 import { Icons } from "@pnpm-monorepo-template/shared-ui/icons";
 import Image from "next/image";
 import { ModeToggle } from "@/my-next-app/components/mode-toggle";
+import { api } from "../lib/api";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+async function getTasks() {
+	const response = await api.tasks.$get();
+	if (!response.ok) {
+		throw new Error(`Failed to fetch tasks: ${response.statusText}`);
+	}
+	return await response.json();
+}
+
+export default async function Home() {
+	const tasks = await getTasks();
+
 	return (
 		<div className="flex min-h-screen items-center justify-center bg-background font-sans">
 			<main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
@@ -16,6 +29,11 @@ export default function Home() {
 					priority
 				/>
 				<ModeToggle />
+
+				<pre className="mt-2 p-4 bg-gray-100 rounded text-xs overflow-auto">
+					{JSON.stringify(tasks, null, 2)}
+				</pre>
+
 				<div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
 					<h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
 						To get started, edit the page.tsx file.

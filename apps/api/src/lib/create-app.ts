@@ -2,7 +2,8 @@ import { OpenAPIHono } from "@hono/zod-openapi";
 import { requestId } from "hono/request-id";
 import { notFound, onError, serveEmojiFavicon } from "stoker/middlewares";
 import { defaultHook } from "stoker/openapi";
-import { pinoLogger } from "@/middlewares/pino-logger";
+import { pinoLogger } from "../middlewares/pino-logger";
+import { BASE_PATH } from "./constants";
 import type { AppBindings } from "./types";
 
 export function createRouter() {
@@ -13,7 +14,7 @@ export function createRouter() {
 }
 
 export default function createApp() {
-	const app = createRouter();
+	const app = createRouter().basePath(BASE_PATH);
 	app.use(requestId());
 	app.use(serveEmojiFavicon("🚀"));
 	app.use(pinoLogger());

@@ -1,6 +1,6 @@
 import { tasks } from "@pnpm-monorepo-template/db";
-import { db } from "@/lib/db";
-import type { AppRouteHandler } from "@/lib/types";
+import { db } from "../../lib/db";
+import type { AppRouteHandler } from "../../lib/types";
 import type { ListRoute } from "./tasks.routes";
 
 export const list: AppRouteHandler<ListRoute> = async (c) => {
