@@ -5,9 +5,7 @@
 		"includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
 	},
 	"linter": {
-		"enabled": true,
 		"rules": {
-			"recommended": true,
 			"suspicious": {
 				"noUnknownAtRules": "off"
 			}
