@@ -11,7 +11,7 @@
 		"./index.css": "./src/index.css"
 	},
 	"scripts": {
-		"dev": "vite",
+		"_dev": "vite",
 		"lint": "biome lint --write",
 		"lint:fix": "biome check --write"
 	},
